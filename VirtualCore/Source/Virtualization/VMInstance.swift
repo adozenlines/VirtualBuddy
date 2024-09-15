@@ -126,6 +126,9 @@ public final class VMInstance: NSObject, ObservableObject {
         if let spiceAgent = helper.createSpiceAgentConsoleDeviceConfiguration() {
             c.consoleDevices = [spiceAgent]
         }
+        if #available(macOS 15.0, *) {
+            c.usbControllers = helper.createUSBControllers()
+        }
 
         let bootDevice = try await helper.createBootBlockDevice()
         let additionalBlockDevices = try await helper.createAdditionalBlockDevices()
@@ -246,9 +249,7 @@ public final class VMInstance: NSObject, ObservableObject {
     private var startOptions: VZVirtualMachineStartOptions {
         switch virtualMachineModel.configuration.systemType {
         case .mac:
-            let opts = VZMacOSVirtualMachineStartOptions()
-            opts.startUpFromMacOSRecovery = options.bootInRecoveryMode
-            return opts
+            return VZMacOSVirtualMachineStartOptions(options: options)
         case .linux:
             return VZVirtualMachineStartOptions()
         }
@@ -290,7 +291,7 @@ public final class VMInstance: NSObject, ObservableObject {
 
     @available(macOS 14.0, *)
     @discardableResult
-    func saveState() async throws -> VBSavedStatePackage {
+    func saveState(snapshotName name: String) async throws -> VBSavedStatePackage {
         logger.debug(#function)
 
         let vm = try ensureVM()
@@ -312,7 +313,7 @@ public final class VMInstance: NSObject, ObservableObject {
 
         logger.debug("VM paused, requesting state save")
 
-        let package = try virtualMachineModel.createSavedStatePackage(in: library)
+        let package = try virtualMachineModel.createSavedStatePackage(in: library, snapshotName: name)
 
         logger.debug("VM state package will be written to \(package.url.path)")
 
@@ -448,5 +449,21 @@ private extension VBVirtualMachine {
             .deletingPathExtension()
             .lastPathComponent
         return cleanID.removingPercentEncoding ?? cleanID
+    }
+}
+
+extension VZMacOSVirtualMachineStartOptions {
+    convenience init(options: VMSessionOptions) {
+        self.init()
+
+        startUpFromMacOSRecovery = options.bootInRecoveryMode
+
+        if options.bootInDFUMode,
+           VBMacConfiguration.appBuildAllowsDFUMode,
+           self.responds(to: NSSelectorFromString("_setForceDFU:"))
+        {
+            _forceDFU = true
+            startUpFromMacOSRecovery = false
+        }
     }
 }
