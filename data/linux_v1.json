@@ -20,6 +20,12 @@
       "name": "Ubuntu",
       "majorVersion": "22.0",
       "minHostVersion": "13.0"
+    },
+    {
+      "id": "ubuntu",
+      "name": "Ubuntu",
+      "majorVersion": "24.0",
+      "minHostVersion": "13.0"
     }
   ],
   "restoreImages": [
@@ -28,6 +34,13 @@
       "name": "Jammy Jellyfish Daily Build",
       "build": "22.04.3 LTS",
       "url": "https://cdimage.ubuntu.com/jammy/daily-live/current/jammy-desktop-arm64.iso",
+      "channel": "daily"
+    },
+    {
+      "group": "ubuntu",
+      "name": "Jammy Jellyfish Daily Build",
+      "build": "24.10.0",
+      "url": "https://cdimage.ubuntu.com/ubuntu/releases/24.10/release/ubuntu-24.10-desktop-arm64.iso",
       "channel": "daily"
     }
   ]
