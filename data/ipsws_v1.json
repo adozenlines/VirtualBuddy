@@ -65,6 +65,62 @@
   "restoreImages": [
     {
       "group": "sequoia",
+      "name": "macOS 15.4 RC",
+      "build": "24E246",
+      "url": "https://updates.cdn-apple.com/2025SpringFCS/fullrestores/082-13013/C3CAC9AF-B139-4924-BE1B-10ED6EF931A4/UniversalMac_15.4_24E246_Restore.ipsw",
+      "channel": "devbeta",
+      "needsCookie": false
+    },
+    {
+      "group": "sequoia",
+      "name": "macOS 15.4 Developer Beta 4",
+      "build": "24E5238a",
+      "url": "https://updates.cdn-apple.com/2025WinterSeed/fullrestores/082-08323/FD7D7539-514F-4F2E-AD3B-4D6D0D248706/UniversalMac_15.4_24E5238a_Restore.ipsw",
+      "channel": "devbeta",
+      "needsCookie": false
+    },
+    {
+      "group": "sequoia",
+      "name": "macOS 15.4 Developer Beta 3",
+      "build": "24E5228e",
+      "url": "https://updates.cdn-apple.com/2025WinterSeed/fullrestores/072-96972/D76A7AE6-3A35-4295-B102-E5FC5C84B4DC/UniversalMac_15.4_24E5228e_Restore.ipsw",
+      "channel": "devbeta",
+      "needsCookie": false
+    },
+    {
+      "group": "sequoia",
+      "name": "macOS 15.4 Developer Beta 2",
+      "build": "24E5222f",
+      "url": "https://updates.cdn-apple.com/2025WinterSeed/fullrestores/072-90273/76B9EE73-0836-47FB-8CBA-E3E902ACD21A/UniversalMac_15.4_24E5222f_Restore.ipsw",
+      "channel": "devbeta",
+      "needsCookie": false
+    },
+    {
+      "group": "sequoia",
+      "name": "macOS 15.4 Developer Beta 1",
+      "build": "24E5206s",
+      "url": "https://updates.cdn-apple.com/2025WinterSeed/fullrestores/072-92205/1FCDCB29-B8A3-4461-A98A-270F1D1121C8/UniversalMac_15.4_24E5206s_Restore.ipsw",
+      "channel": "devbeta",
+      "needsCookie": false
+    },
+    {
+      "group": "sequoia",
+      "name": "macOS 15.3.2",
+      "build": "24D81",
+      "url": "https://updates.cdn-apple.com/2025WinterFCS/fullrestores/082-01504/828B8EF9-8134-49D5-B24A-0BA504FC5ECC/UniversalMac_15.3.2_24D81_Restore.ipsw",
+      "channel": "regular",
+      "needsCookie": false
+    },
+    {
+      "group": "sequoia",
+      "name": "macOS 15.3.1",
+      "build": "24D70",
+      "url": "https://updates.cdn-apple.com/2025WinterFCS/fullrestores/072-70618/42F1A8CC-7E07-4329-958A-757FF600C303/UniversalMac_15.3.1_24D70_Restore.ipsw",
+      "channel": "regular",
+      "needsCookie": false
+    },
+    {
+      "group": "sequoia",
       "name": "macOS 15.3",
       "build": "24D60",
       "url": "https://updates.cdn-apple.com/2025WinterFCS/fullrestores/072-08269/7CAAB9F7-E970-428D-8764-4CD7BCD105CD/UniversalMac_15.3_24D60_Restore.ipsw",
